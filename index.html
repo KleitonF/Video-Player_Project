@@ -2,30 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Vídeo Player</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <h1>Vídeo-Player</h1>
-    <br>
-    <div class="container">
-        <video id="video1" poster="./assets/cyberpunkIMG.webp" autoplay src="./assets/Cyberpunk-2077.mp4"></video>
-        
-        <div id="control">
-            <div id="progressWrapper">
-                <div id="progress"></div>
+
+    <header>
+        <h1>Projeto - Vídeo Player</h1>
+    </header>
+    <main>
+        <br>
+        <section class="player" >
+            <video id="video" src="./assets/videos/Cyberpunk-2077.mp4" poster="./assets/videos/cyberpunkIMG.webp">  </video>
+
+            <div class="controller">
+                <div id="container_title_video">
+                    <h3 id='title_video'> Trailer Cyberpunk 2077 </h3>
+                </div>
+                <div class="progress_wrap">
+                    <div id="progress_bar"></div>
+                </div>
+
+                <div class="container_btns">
+                    <img id="btn_back" class="btn" src="./assets/imagens/back - branco.png">
+                    <img id="btn_play" status ="true" class="btn" src="./assets/imagens/play - branco.png">
+                    <img id="btn_stop" class="btn" src="./assets/imagens/stop - branco.png">
+                    <img id="btn_forward" class="btn" src="./assets/imagens/forward - branco.png">
+                    <img id="btn_fullscreen" class="btn" src="./assets/imagens/full-screen.png">
+                </div>
             </div>
-            <section id="buttons">
-                <img id="back" class="btn" src="./assets/back - branco.png" alt="Botão back">
-                <img id="playPause" class="btn" data-status="true" src="./assets/play - branco.png" alt="Botão play">
-                <img id="stop" class="btn" src="./assets/stop - branco.png" alt="Botão stop">
-                <img id="forward" class="btn" src="./assets/forward - branco.png" alt="Botão forward">
-            </section>
-        </div>
-    
-    </div>
-
-
+        </section>
+        <br>
+        <section class="lista_videos">
+            <div class="it_list"><img class="img_list" src="./assets/videos/cyberpunkIMG.webp" alt=""><h3>Trailer Cyberpunk</h3></div>
+            <div class="it_list"><img class="img_list" src="./assets/videos/batman-arkham-origins-video-game-wallpaper-preview.jpg" alt=""><h3>Trailer Batman Arkham Origins</h3></div>
+            <div class="it_list"><img class="img_list" src="./assets/videos/final-fantasy-vii-remake-cloud-strife-shinra-midgar-hd-wallpaper-preview.jpg" alt=""><h3>Trailer Final Fantasy VII</h3></div>
+            <div class="it_list"><img class="img_list" src="./assets/videos/video-game-horizon-zero-dawn-aloy-horizon-zero-dawn-wallpaper-preview.jpg" alt=""><h3>Trailer Horizon Zero Dawn</h3></div>
+            <div class="it_list"><img class="img_list" src="./assets/videos/aciii-3-wallpaper-preview.jpg" alt=""><h3>Trailer Assassin's Creed 3</h3></div>
+        </section>
+    </main>
+    <br>
+    <footer>
+        <p>Note from dev: this page was created for studying purposes only.<br>
+            I do not own any of these videos. Please do not share.</p>
+    </footer>
     <script src="./js/script.js"></script>
 </body>
 </html>

@@ -1,63 +1,91 @@
-let video1 = document.getElementById("video1")
-let control = document.getElementById("control")
-let barProgress = document.getElementById("progressWrapper")
-let progress = document.getElementById("progress")
-let buttons = document.getElementById("buttons")
-let back = document.getElementById("back")
-let playPause = document.getElementById("playPause")
-let Stop = document.getElementById("stop");
-let forward = document.getElementById("forward")
-let index = 0;
-let body = document.getElementsByTagName("body")[0]
+let title_video = document.getElementById("title_video")
+let video = document.getElementById("video")
+let progress_bar = document.getElementById("progress_bar")
+let btn_play = document.getElementById("btn_play")
+let sts = btn_play.getAttribute("status")
+let btn_stop = document.getElementById("btn_stop")
+let btn_back = document.getElementById("btn_back")
+let btn_forward = document.getElementById("btn_forward")
+let btn_fullscreen = document.getElementById("btn_fullscreen")
+let it_list = document.getElementsByClassName("it_list")
 
-// Funções para exibir ou esconder ao colocar o mouse sobre o vídeo
-control.addEventListener("mouseover", ()=>{
-    barProgress.style = "opacity: 100%;"
-    buttons.style = "opacity: 100%;"
+//Configurações do Seletor de vídeos
+it_list[0].addEventListener("click", () =>{
+    var video = document.getElementById("video")
+    title_video.innerHTML = "<h3 id='title_video'> Trailer Cyberpunk 2077 </h3>"
+    video.setAttribute("src","./assets/videos/Cyberpunk-2077.mp4")
+    video.setAttribute("poster","./assets/videos/cyberpunkIMG.webp")
+    video = document.getElementById("video")
 })
 
-control.addEventListener("mouseout", ()=>{
-    barProgress.style = "opacity: 0%;"
-    buttons.style = "opacity: 0%;"
+it_list[1].addEventListener("click", () =>{
+    var video = document.getElementById("video")
+    title_video.innerHTML = "<h3 id='title_video'> Trailer Batman Arkham Origins </h3>"
+    video.setAttribute("src","./assets/videos/Batman-Arkham-Origins-Trailer.mp4")
+    video.setAttribute("poster","./assets/videos/batman-arkham-origins-video-game-wallpaper-preview.jpg")
+    video = document.getElementById("video")
 })
 
-video1.addEventListener("timeupdate",()=>{
-    n = video1.currentTime
-    s = video1.duration
-    ns = (n*100)/s
-    progress.style = "width:"+ns+"%;"
+it_list[2].addEventListener("click", () =>{
+    var video = document.getElementById("video")
+    title_video.innerHTML = "<h3 id='title_video'> Trailer Final Fantasy VII remake </h3>"
+    video.setAttribute("src","./assets/videos/FFVII-remake-trailer.mp4")
+    video.setAttribute("poster","./assets/videos/final-fantasy-vii-remake-cloud-strife-shinra-midgar-hd-wallpaper-preview.jpg")
+    video = document.getElementById("video")
+})
+it_list[3].addEventListener("click", () =>{
+    var video = document.getElementById("video")
+    title_video.innerHTML = "<h3 id='title_video'> Trailer Horizon Zero Dawn </h3>"
+    video.setAttribute("src","./assets/videos/Horizon-Zero Dawn-Trailer.mp4")
+    video.setAttribute("poster","./assets/videos/video-game-horizon-zero-dawn-aloy-horizon-zero-dawn-wallpaper-preview.jpg")
+    video = document.getElementById("video")
 })
 
-// Função do botão PlayPause e sincronização da barra de progresso
-playPause.addEventListener("click", ()=>{
-    playPause.getAttribute("data-status")
-    let status = playPause.dataset.status
-    if (status == "true"){
-    video1.play()
-    playPause.setAttribute("src", "./assets/pause - branco.png")
+it_list[4].addEventListener("click", () =>{
+    var video = document.getElementById("video")
+    title_video.innerHTML = "<h3 id='title_video'> Trailer Assasin's creed III </h3>"
+    video.setAttribute("src","./assets/videos/Assassins-Creed-3-Trailer.mp4")
+    video.setAttribute("poster","./assets/videos/aciii-3-wallpaper-preview.jpg")
+    video = document.getElementById("video")
+})
 
-    return playPause.dataset.status = "false"
+// Configurações do Player de Vídeo
+video.addEventListener("timeupdate", (e)=>{
+    let currentTime = e.target.currentTime;
+    let duration = e.target.duration;
+    let progressWidth = (currentTime / duration) *100;
+    progress_bar.style.width = progressWidth+"%";
+})
+
+btn_play.addEventListener("click",()=>{
+    let sts = btn_play.getAttribute("status")
+    if(sts == "true"){
+        video.play()
+        btn_play.setAttribute("src","./assets/imagens/pause - branco.png")
+        btn_play.setAttribute("status","false")
     }
-    else{
-        video1.pause()
-        playPause.setAttribute("src", "./assets/play - branco.png")
-
-    return playPause.dataset.status = "true"  
-        }
+    if(sts == "false"){
+        video.pause()
+        btn_play.setAttribute("src","./assets/imagens/play - branco.png")
+        btn_play.setAttribute("status","true")
+    }
 })
 
-// Função do Botão stop
-Stop.addEventListener("click", ()=>{
-    video1.pause()
-    video1.currentTime = 0;
+btn_stop.addEventListener("click", () => {
+    video.pause()
+    video.currentTime = 0;
+    btn_play.setAttribute("src","./assets/imagens/play - branco.png")
+    btn_play.setAttribute("status","true")
 })
 
-// Função do Botão forward
-forward.addEventListener("click", ()=>{
-    video1.currentTime += 10;
+btn_back.addEventListener("click", () => {
+    video.currentTime -= 10;
 })
 
-// Função do Botão back
-back.addEventListener("click", ()=>{
-    video1.currentTime -= 10;
+btn_forward.addEventListener("click", () => {
+    video.currentTime += 10;
+})
+
+btn_fullscreen.addEventListener("click", () => {
+    video.requestFullscreen()
 })

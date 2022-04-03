@@ -1,73 +1,150 @@
 *{
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-
-}
-
-h1{
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    text-shadow: 5px 5px 10px black;
-    color: rgb(76, 21, 128);
 }
 
 body{
-    background-color: rgb(27, 27, 27);
-    margin-top: 1%;
+    overflow-x: hidden;
+    background-color: rgb(12, 12, 12);
 }
 
-.container{
-    position: relative;
-    box-sizing: border-box;
-    width: 70%;
+header{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: 60px;
+    background-color: rgb(20, 20, 20);
+    color: white;
+    text-shadow: 0px 0px 5px;
+    box-shadow: 0px 5px 10px black;
+}
+
+main{
     margin: auto;
-}
-
-#video1{
-    box-sizing: border-box;
-    width: 100%;
-    border-color: black;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px;
-}
-
-#control{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0%;
-
-}
-
-#progressWrapper{
-    position: absolute;
-    background-color: rgb(24, 24, 24);
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%, -120%);
-    height: 5px;
     width: 80%;
-    opacity: 0%;
-
 }
 
-#progress{
-    background-color: red;
-    width: 0px;
+.player{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    background-color: black;
+    box-shadow: 0px 5px 10px;
+}
+
+#container_title_video{
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    top: 1;
+}
+
+#title_video{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    text-shadow: 0px 5px 10px black;
+}
+
+#video{
+    width: 100%;
     height: 100%;
 }
 
-#buttons{
+.controller{
     position: absolute;
-    opacity: 0%;
-    top: 100%;
-    left: 50%;
+    background-image: url(../assets/imagens/fundo_degrade.png);
+    background-size: contain;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 250ms;
+}
 
-    transform: translate(-50%, -120%);
+.controller:hover{
+    opacity: 100%;
+}
+
+.progress_wrap{
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: gray;
+    width: 70%;
+    height: 5px;
+}
+
+#progress_bar{
+    background-color: red;
+    height: 100%;
+    width: 0;
+}
+
+.container_btns{
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .btn{
-    display: inline-block;
     width: 30px;
-    margin-left: 5px;
+}
+
+.lista_videos{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(20, 20, 20);
+    box-shadow: 0px 5px 10px black;
+    transition: 500ms;
+    overflow: hidden;
+}
+
+.it_list{
+    display: flex;
+    color: white;
+    margin: 10px;
+    background-color: rgb(63, 63, 63);
+    box-shadow: 3px 3px 10px black;
+    transition: 250ms;
+}
+
+.it_list:hover{
+    background-color: rgb(32, 32, 32);
+    text-shadow: 0px 0px 10px;
+}
+
+.img_list{
+    width: 150px;
+}
+
+h3{
+    margin: 10px;
+}
+
+footer{
+    position: fixed;
+    bottom: 0%;
+    width: 50px;
+    height: 30px;
+    background-color: rgb(54, 54, 54);
+    color: rgb(54, 54, 54);
+    box-shadow: 0px 0px 10px black;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition: 500ms;
+    overflow: hidden;
+    border-radius: 10px 10px 0px 0px;
+    font-size: 14px;
+}
+
+footer:hover{
+    height: 30px;
+    width: 100%;
+    color: yellow;
 }
